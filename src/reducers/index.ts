@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import helloworld from "./helloworld";
+import data from "./data";
 
 export default combineReducers({
-    helloworld
+    data
 });

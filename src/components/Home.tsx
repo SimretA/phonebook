@@ -1,26 +1,48 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
-import {requestHelloworld} from "../actions";
+import {requestDataFromApi} from "../actions";
 
 
-class Home extends React.Component{
-    componentDidMount(){
-        // @ts-ignore
-        this.props.requestHelloworld();
+class Home extends React.Component {
+    componentDidMount() {
+        this.props.requestDataFromApi();
 
     }
 
-    render(){
-        // @ts-ignore
-        return(
-            <h1>{this.props.helloworld}</h1>
-        );
+
+    person = (contact) =>
+        <div key={contact.id.value}>
+
+            <h1>
+                Name: {contact.employee_name}
+            </h1>
+            <h1>
+                Age: {contact.employee_age}
+            </h1>
+            {/*<img src={x.picture.medium} />*/}
+        </div>;
+
+    render() {
+        const { results = [] } = this.props.data;
+        console.log(results);
+        // return results.length
+        //     ? <h1>
+        //         {results.map(this.person)}
+        //     </h1>
+        //     : <h1>loading...</h1>;
+        return <div>
+            {results.map(contact => {
+                this.person(contact);
+                console.log(contact);
+            })}
+        </div>
     }
 }
 
-// @ts-ignore
-const mapStateToProps = state =>({helloworld : state.helloworld})
-// @ts-ignore
-const mapDispatchToProps = dispatch =>bindActionCreators({requestHelloworld},dispatch);
+const mapStateToProps = state => ({ data: state.data });
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({ requestDataFromApi }, dispatch);
+
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
