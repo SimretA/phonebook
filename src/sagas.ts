@@ -13,8 +13,8 @@ function* getApiData(action) {
         // do api call
         const data = yield call(fetchData);
 
-        console.log("saga", data);
         yield put(recieveDataFromApi(data));
+        console.log("saga", data);
 
     } catch (e) {
         console.log(e);

@@ -15,7 +15,8 @@ export interface APIData {
 export const  requestDataFromApi = () =>({
     type: REQUEST_DATA_FROM_API
 });
-export const  recieveDataFromApi = (data: APIData) =>({
+// @ts-ignore
+export const  recieveDataFromApi = (data) =>({
     type: RECEIVE_DATA_FROM_API,
     data
 });
