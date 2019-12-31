@@ -7,11 +7,15 @@
 
 export const REQUEST_DATA_FROM_API = "REQUEST_DATA_FROM_API";
 export const RECEIVE_DATA_FROM_API = "RECEIVE_DATA_FROM_API";
+export const POST_DATA_TO_API = "POST_DATA_TO_API";
+export const DELETE_CONTACT = "DELETE_CONTACT";
+export const POST_DATA_ADDED = "POST_DATA_ADDED";
 
-export interface APIData {
+export interface Contact {
     name: string;
-    email: string;
+    age: number;
 }
+
 export const  requestDataFromApi = () =>({
     type: REQUEST_DATA_FROM_API
 });
@@ -20,3 +24,16 @@ export const  recieveDataFromApi = (data) =>({
     type: RECEIVE_DATA_FROM_API,
     data
 });
+
+export const addContact = (contact: Contact) =>({
+    type: POST_DATA_TO_API,
+        contact
+
+});
+export const deleteContact = (id: number) =>({
+    type: DELETE_CONTACT,
+    id
+
+
+});
+

@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 export default styled.div`
-  background-color: #b0b0ff;
+  // background-color: #b0b0ff;
+  color: #ff0;
   
   &:hover{
-    color:#ececec;
+    color:#000;
     transform: scale(1.1);
-    border: solid 2px #333;
+    background-color: #ff0;
+    border-radius: 30px;
+    border: 5px solid #fff;
   }
   
   

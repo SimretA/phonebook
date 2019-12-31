@@ -4,11 +4,11 @@ import {Provider} from 'react-redux';
 
 import store from './store';
 import Contact from './components/Contact'
-// import Add from './components/Add';
+import AddModal from './components/AddModal';
 
 export default ()=>(
     <Provider store ={store}>
+        <AddModal />
         <Contact />
-        {/*<Add />*/}
     </Provider>
 )
