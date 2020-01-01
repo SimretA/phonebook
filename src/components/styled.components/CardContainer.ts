@@ -6,10 +6,10 @@ export default styled.div`
   
   &:hover{
     color:#000;
-    transform: scale(0.8);
+    transform: scale(0.6);
     background-color: #ff0;
     border-radius: 30px;
-    border: 5px solid #fff;
+    padding:10%;
   }
   
   
