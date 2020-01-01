@@ -4,15 +4,9 @@ import {addContact} from "../actions";
 import {connect} from "react-redux";
 import styled from "styled-components";
 import StyledButton from "./styled.components/StyledButton";
+import Input from "./styled.components/Input";
 
-const Input = styled.input`
-      width: 20%;
-      padding: 12px 20px;
-      margin: 0 18px;
-      display: inline;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;`;
+
 const InputContainer = styled.div`
     position: fixed;
     top: 2%;
