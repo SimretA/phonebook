@@ -9,6 +9,7 @@ import CardContainer from "./styled.components/CardContainer";
 import CardEntry from "./styled.components/CardEntry";
 import DeleteFab from "./styled.components/DeleteFab";
 import Modal from "./Modal";
+import Loading from "./styled.components/Loading";
 
 class Contact extends React.Component {
     constructor(props){
@@ -47,8 +48,8 @@ class Contact extends React.Component {
 
 
     person = (x, i) =>
-        <CardContainer key={x.id}>
-            <DeleteFab  value={JSON.stringify(x)} id={x}  onClick={evt=>this.showModal(evt)}>Expand</DeleteFab>
+        <CardContainer key={x.id}  >
+            <DeleteFab  value={JSON.stringify(x)}   onClick={evt=>this.showModal(evt)}>Expand</DeleteFab>
             <DeleteFab value={x.id} onClick={evt=>this.handleDelete(evt)}>Delete</DeleteFab>
             <img src={`https://robohash.org/${x.id}.png`} height="300px" width="300px"/>
             <CardHeader>
@@ -62,9 +63,6 @@ class Contact extends React.Component {
 
     render() {
         const results = this.props.data || []; //sort(function (obj1, obj2) {return obj2.id - obj1.id; })
-        console.log(results);
-        console.log(typeof results);
-        console.log(Object.entries(results).reverse());
         let torend ="";
         Object.entries(results).reverse().forEach(contact => {
             //console.log(contact[1]);
@@ -74,12 +72,12 @@ class Contact extends React.Component {
         return results.length
             ?<div>
 
-                <Modal close={this.closeModal} dets={this.state.details} show={this.state.show} />
+                    <Modal close={this.closeModal} dets={this.state.details} show={this.state.show} />
             <Wrapper>
                 {results.map(this.person)}
             </Wrapper>
             </div>
-            : <h1>loading...</h1>;
+            : <Loading>loading...If this takes too long please check your internet and reload the page</Loading>;
     }
     closeModal(){
         this.setState({
@@ -87,6 +85,7 @@ class Contact extends React.Component {
 
         });
     }
+
 
 
 }

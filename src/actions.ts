@@ -9,7 +9,7 @@ export const REQUEST_DATA_FROM_API = "REQUEST_DATA_FROM_API";
 export const RECEIVE_DATA_FROM_API = "RECEIVE_DATA_FROM_API";
 export const POST_DATA_TO_API = "POST_DATA_TO_API";
 export const DELETE_CONTACT = "DELETE_CONTACT";
-export const POST_DATA_ADDED = "POST_DATA_ADDED";
+export const EDIT_POST = "EDIT_POST";
 
 export interface Contact {
     name: string;
@@ -27,7 +27,12 @@ export const  recieveDataFromApi = (data) =>({
 
 export const addContact = (contact: Contact) =>({
     type: POST_DATA_TO_API,
-        contact
+    contact
+
+});
+export const editContact = (contact: Contact) =>({
+    type: EDIT_POST,
+    contact
 
 });
 export const deleteContact = (id: number) =>({
