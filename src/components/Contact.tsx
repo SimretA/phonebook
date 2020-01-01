@@ -13,6 +13,11 @@ import Loading from "./styled.components/Loading";
 import Alert from "./Alert";
 
 class Contact extends React.Component {
+    private alertClose(evt){
+        this.setState({
+            alert: false
+        });
+    }
     constructor(props){
         super(props);
         this.state = {
@@ -22,6 +27,8 @@ class Contact extends React.Component {
             employee_age: 0,
             employee_salary: 0,
             id: 0,
+            info:'',
+            alert:false,
         };
         this.closeModal = this.closeModal.bind(this);
     }
@@ -45,6 +52,10 @@ class Contact extends React.Component {
     private handleDelete(evt){
         // alert("delete "+ evt.target.id);
         this.props.deleteContact(evt.target.value);
+        this.setState({
+            info:"Conact  Deleted!",
+            alert:true,
+        })
     }
 
 
@@ -74,6 +85,7 @@ class Contact extends React.Component {
             ?<div>
 
                     <Modal close={this.closeModal} dets={this.state.details} show={this.state.show} />
+                    <Alert close={evt=>this.alertClose(evt)} show={this.state.alert} info={this.state.info} />
 
             <Wrapper>
                 {results.map(this.person)}
