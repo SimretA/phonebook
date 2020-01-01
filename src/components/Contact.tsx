@@ -53,7 +53,7 @@ class Contact extends React.Component {
         // alert("delete "+ evt.target.id);
         this.props.deleteContact(evt.target.value);
         this.setState({
-            info:"Conact  Deleted!",
+            info:"Deleting Contact!",
             alert:true,
         })
     }
