@@ -10,6 +10,7 @@ import CardEntry from "./styled.components/CardEntry";
 import DeleteFab from "./styled.components/DeleteFab";
 import Modal from "./Modal";
 import Loading from "./styled.components/Loading";
+import Alert from "./Alert";
 
 class Contact extends React.Component {
     constructor(props){
@@ -73,6 +74,7 @@ class Contact extends React.Component {
             ?<div>
 
                     <Modal close={this.closeModal} dets={this.state.details} show={this.state.show} />
+
             <Wrapper>
                 {results.map(this.person)}
             </Wrapper>
